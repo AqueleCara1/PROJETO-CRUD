@@ -98,7 +98,7 @@ Acesse: **http://localhost:8000**
 
 | Usuário | Senha |
 |---------|-------|
-| admin@exemplo.com | senha123 |
+| admin@softline.com | 123456 |
 
 > Ajuste conforme o usuário criado no seu Seeder.
 
