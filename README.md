@@ -42,8 +42,8 @@ Aplicação web de cadastro (CRUD) de **Produtos** e **Clientes**, com tela de l
 
 ```bash
 # 1. Clonar o repositório
-git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
-cd SEU_REPOSITORIO
+git clone https://github.com/AqueleCara1/PROJETO-CRUD.git
+cd PROJETO-CRUD
 
 # 2. Instalar dependências do PHP
 composer install
@@ -109,7 +109,7 @@ Acesse: **http://localhost:8000**
 Os scripts de criação do banco, tabelas e campos estão na pasta:
 
 ```
-database/sql/script.sql
+database/script.sql
 ```
 
 ---
