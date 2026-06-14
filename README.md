@@ -109,7 +109,7 @@ Acesse: **http://localhost:8000**
 Os scripts de criação do banco, tabelas e campos estão na pasta:
 
 ```
-database/sql/script.sql
+database/script.sql
 ```
 
 ---
