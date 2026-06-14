@@ -1,58 +1,128 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Teste Técnico DEV — Soft-line Soluções em Sistemas
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplicação web de cadastro (CRUD) de **Produtos** e **Clientes**, com tela de login e dashboard, desenvolvida em **Laravel**.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## ✨ Funcionalidades
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Autenticação**: tela de login com usuário, senha e validações básicas.
+- **Dashboard**: página inicial após o login, com acesso aos módulos de Produtos e Clientes e contadores em tempo real.
+- **CRUD completo** (inserir, editar, visualizar e deletar) para:
+  - **Produtos**: código, descrição, código de barras, valor de venda, peso bruto e peso líquido.
+  - **Clientes**: código, nome, fantasia, documento (CPF/CNPJ com máscara) e endereço.
+- Paginação nas listagens.
+- Mensagens de sucesso e confirmação antes de excluir.
+- Validações no front-end e no back-end.
+- Interface com tema escuro (dark mode).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🛠️ Tecnologias
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Back-end**: PHP / Laravel
+- **Front-end**: Blade, JavaScript, CSS, HTML
+- **Banco de Dados**: MySQL
+- **Gerenciadores**: Composer e NPM
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+> Observação: o teste indica preferência por C# / SQL Server, mas a própria descrição permite o uso de outras tecnologias. Optei por Laravel + MySQL.
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+---
 
-## Agentic Development
+## ✅ Pré-requisitos
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+- PHP >= 8.1
+- Composer
+- Node.js e NPM
+- MySQL
+
+---
+
+## 🚀 Como rodar o projeto
 
 ```bash
-composer require laravel/boost --dev
+# 1. Clonar o repositório
+git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
+cd SEU_REPOSITORIO
 
-php artisan boost:install
+# 2. Instalar dependências do PHP
+composer install
+
+# 3. Instalar dependências do front-end
+npm install
+npm run build
+
+# 4. Criar o arquivo de ambiente
+cp .env.example .env
+
+# 5. Gerar a chave da aplicação
+php artisan key:generate
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### Configurar o banco de dados
 
-## Contributing
+Abra o arquivo `.env` e ajuste as credenciais:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=softline  
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-## Code of Conduct
+### Criar as tabelas e o usuário de acesso
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Você pode usar **uma** das duas opções:
 
-## Security Vulnerabilities
+**Opção A — via migrations (recomendado):**
+```bash
+php artisan migrate --seed
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+**Opção B — via script SQL:**  
+Importe o arquivo `database/sql/script.sql` (veja a pasta `database/sql`) diretamente no seu MySQL ou MySQL Workbench.
 
-## License
+### Subir a aplicação
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+php artisan serve
+```
+
+Acesse: **http://localhost:8000**
+
+---
+
+## 🔑 Credenciais de acesso
+
+| Usuário | Senha |
+|---------|-------|
+| admin@exemplo.com | senha123 |
+
+> Ajuste conforme o usuário criado no seu Seeder.
+
+---
+
+## 📂 Scripts do Banco de Dados
+
+Os scripts de criação do banco, tabelas e campos estão na pasta:
+
+```
+database/sql/script.sql
+```
+
+---
+
+## 📑 Páginas da aplicação
+
+1. **Login**
+2. **Dashboard** (acesso a Produtos e Clientes)
+3. **Lista de Produtos**
+4. **Cadastro de Produtos**
+5. **Lista de Clientes**
+6. **Cadastro de Clientes**
+
+---
+
+Desenvolvido para o processo seletivo da **Soft-line Soluções em Sistemas**.
